@@ -34,7 +34,7 @@ public class _01VariosMetodos {
 		
 		
 		//Volcamos set a array
-		Object[] x = s.toArray();
+		//Object[] x = s.toArray();
 		Integer[] result = s.toArray(new Integer[0]);
 		return result;
 	}

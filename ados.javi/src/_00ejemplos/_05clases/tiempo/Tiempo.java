@@ -8,6 +8,9 @@ public class Tiempo implements Comparable<Tiempo> /* extends Object */ {
 
 	// Constructores
 	public Tiempo(int hora, int minuto, int segundo) {
+//		this.hora = hora;
+//		this.minuto = minuto;
+//		this.segundo = segundo;
 		this.setHora(hora);
 		this.setMinuto(minuto);
 		this.setSegundo(segundo);
@@ -23,7 +26,7 @@ public class Tiempo implements Comparable<Tiempo> /* extends Object */ {
 
 	@Override
 	public String toString() {
-		// return hora + ":" + minuto + ":" + segundo;
+		//return hora + ":" + minuto + "::" + segundo;
 		return String.format("%02d:%02d:%02d", hora, minuto, segundo);
 	}
 
@@ -37,7 +40,7 @@ public class Tiempo implements Comparable<Tiempo> /* extends Object */ {
 			return false;
 
 		Tiempo t = (Tiempo) o;
-		return this.hora == t.hora && this.minuto == t.minuto && this.segundo == t.segundo;
+		return this.hora == ((Tiempo)o).hora && this.minuto == t.minuto && this.segundo == t.segundo;
 	}
 
 	public int compareTo(Tiempo t) {
@@ -56,16 +59,17 @@ public class Tiempo implements Comparable<Tiempo> /* extends Object */ {
 	public int hashCode() {
 		String t = hora + " " + minuto + "  " + segundo;
 		return t.hashCode();
+		//return hora;
 	}
 
 	public int getHora() {
-		return hora;
+		return this.hora;
 	}
 
 	public void setHora(int hora) {
-		if(hora < 0) hora = 0;
-		else if (hora > 23) hora = 23;
-		this.hora = hora;
+		if(hora < 0) this.hora = 0;
+		else if (hora > 23) this.hora = 23;
+		else this.hora = hora;
 	}
 
 	public int getMinuto() {
